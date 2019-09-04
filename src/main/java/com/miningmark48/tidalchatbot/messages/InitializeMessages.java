@@ -14,10 +14,7 @@ import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 
 import javax.script.ScriptException;
 import java.io.*;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Objects;
-import java.util.Random;
+import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -128,6 +125,9 @@ public class InitializeMessages {
                 case MATH:
                     replacement = mathResponse(msg, response);
                     break;
+                case TIME:
+                    replacement = timeResponse(msg, response);
+                    break;
             }
             return replacement;
         }
@@ -135,16 +135,24 @@ public class InitializeMessages {
     }
 
     private static String diceResponse(String msg, String response, Random rand) {
-        return response.replace(String.format("{%s}", Actions.DICE.getName()), String.valueOf(rand.nextInt(6) + 1));
+        return response.replace(Actions.DICE.getAction(), String.valueOf(rand.nextInt(6) + 1));
     }
 
     private static String mathResponse(String msg, String response) {
         try {
             String math = msg.replaceAll("([A-Za-z?$#@!{},;:'\"`~|])", ""); //Removes characters that don't work
-            return response.replace(String.format("{%s}", Actions.MATH.getName()), UtilMath.doMath(math));
+            return response.replace(Actions.MATH.getAction(), UtilMath.doMath(math));
         } catch (ScriptException e) {
             return "[INVALID MATH]";
         }
+    }
+
+    private static String timeResponse(String msg, String response) {
+        Date date = new Date(System.currentTimeMillis());
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date);
+
+        return response.replace(Actions.TIME.getAction(), String.format("%s:%s %s", calendar.get(Calendar.HOUR), calendar.get(Calendar.MINUTE), calendar.getTimeZone().getDisplayName().replaceAll("\\B.|\\P{L}", "")));
     }
 
 }

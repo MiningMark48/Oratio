@@ -3,7 +3,8 @@ package com.miningmark48.tidalchatbot.reference;
 public enum Actions {
 
     DICE("dice"),
-    MATH("math");
+    MATH("math"),
+    TIME("time");
 
     private final String name;
 
@@ -13,6 +14,10 @@ public enum Actions {
 
     public String getName() {
         return this.name;
+    }
+
+    public String getAction() {
+        return String.format("{%s}", getName());
     }
 
 }
