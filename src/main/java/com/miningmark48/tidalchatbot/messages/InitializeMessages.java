@@ -18,6 +18,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Objects;
 import java.util.Random;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class InitializeMessages {
 
@@ -105,20 +107,44 @@ public class InitializeMessages {
 
     private static String handleActions(MessageReceivedEvent event, String response) {
         String msg = event.getMessage().getContentRaw();
-        if (response.contains(String.format("{%s}", Actions.MATH.getName()))) {
-            try {
-                return mathResponse(msg, response);
-            } catch (ScriptException e) {
-                event.getTextChannel().sendMessage("Error! Invalid math.").queue();
-                return "";
+        Pattern pattern = Pattern.compile("\\{(.*?)}");
+        Matcher matcher = pattern.matcher(response);
+
+        ArrayList<String> matches = new ArrayList<>();
+        while (matcher.find()) {
+            matches.add(matcher.group(1));
+        }
+
+        Random rand = new Random();
+        for (String match : matches) {
+            String replacement;
+            switch (Actions.valueOf(match.toUpperCase())) {
+                default:
+                    replacement = "";
+                    break;
+                case DICE:
+                    replacement = diceResponse(msg, response, rand);
+                    break;
+                case MATH:
+                    replacement = mathResponse(msg, response);
+                    break;
             }
+            return replacement;
         }
         return response;
     }
 
-    private static String mathResponse(String msg, String response) throws ScriptException {
-        String math = msg.replaceAll("([A-Za-z?$#@!{},;:'\"`~|])", ""); //Removes characters that don't work
-        return response.replace(String.format("{%s}", Actions.MATH.getName()), UtilMath.doMath(math));
+    private static String diceResponse(String msg, String response, Random rand) {
+        return response.replace(String.format("{%s}", Actions.DICE.getName()), String.valueOf(rand.nextInt(6) + 1));
+    }
+
+    private static String mathResponse(String msg, String response) {
+        try {
+            String math = msg.replaceAll("([A-Za-z?$#@!{},;:'\"`~|])", ""); //Removes characters that don't work
+            return response.replace(String.format("{%s}", Actions.MATH.getName()), UtilMath.doMath(math));
+        } catch (ScriptException e) {
+            return "[INVALID MATH]";
+        }
     }
 
 }

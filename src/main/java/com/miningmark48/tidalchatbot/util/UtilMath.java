@@ -1,7 +1,5 @@
 package com.miningmark48.tidalchatbot.util;
 
-import com.miningmark48.tidalchatbot.util.UtilLogger.LogType;
-
 import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;
 import javax.script.ScriptException;

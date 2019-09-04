@@ -3,6 +3,15 @@
     {
       "triggers": [ "do math" ],
       "responses": [ "The answer is {math}", "I believe it is {math}", "Hmm... It's {math}" ]
+    },
+    {
+      "triggers": [ "roll a die", "roll a dice" ],
+      "responses": [ "Rolling... it's {dice}!", "And it's a... {dice}!", "It's {dice}", "You rolled a {dice}" ],
+      "type": "or"
+    },
+    {
+      "triggers": [ "ask the", "8ball" ],
+      "responses": [ "Maybe.", "Certainly not.", "I hope so.", "Not in your wildest dreams.", "There is a good chance.", "Quite likely.", "I think so.", "I hope not.", "I hope so.", "Never!", "Ahaha! Really?!?", "Pfft.", "Sorry, bucko.", "Hell, yes.", "Hell to the no.", "The future is bleak.", "The future is uncertain.", "I would rather not say.", "Who cares?", "Possibly.", "Never, ever, ever.", "There is a small chance.", "Yes!" ]
     }
   ]
 }
