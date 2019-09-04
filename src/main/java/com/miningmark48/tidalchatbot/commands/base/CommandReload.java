@@ -1,6 +1,6 @@
 package com.miningmark48.tidalchatbot.commands.base;
 
-import com.miningmark48.tidalchatbot.messages.InitializeMessages;
+import com.miningmark48.tidalchatbot.messages.MessagesHandler;
 import com.miningmark48.tidalchatbot.reference.Reference;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 
@@ -15,7 +15,7 @@ public class CommandReload implements ICommand {
     public void action(String[] args, MessageReceivedEvent event) {
         if (event.getAuthor().getId().equals(Reference.botOwner)) {
             event.getTextChannel().sendMessage("Reloading...").queue(m -> {
-                InitializeMessages.init();
+                MessagesHandler.init();
                 m.editMessage("Reloaded!").queue();
             });
         } else {
