@@ -19,6 +19,14 @@
     {
       "triggers": [ "is", "tidal", "bot", "open", "source" ],
       "responses": [ "Yes, both Tidal Bot and Tidal Chatbot are open source on Github." ]
+    },
+    {
+      "triggers": [ "how", "disable", "chat", "bot" ],
+      "responses": [ "You can disable the chatbot for yourself by using the command `togglecp`, but what's the fun in that?" ]
+    },
+    {
+      "triggers": [ "how", "turn off", "chat", "bot" ],
+      "responses": [ "You can disable the chatbot for yourself by using the command `togglecp`, but what's the fun in that?" ]
     }
   ]
 }

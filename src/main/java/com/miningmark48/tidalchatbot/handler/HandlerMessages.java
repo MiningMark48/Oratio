@@ -1,4 +1,4 @@
-package com.miningmark48.tidalchatbot.messages;
+package com.miningmark48.tidalchatbot.handler;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
@@ -10,6 +10,7 @@ import com.miningmark48.tidalchatbot.util.UtilLogger;
 import com.miningmark48.tidalchatbot.util.UtilLogger.LogType;
 import com.miningmark48.tidalchatbot.util.UtilMath;
 import com.miningmark48.tidalchatbot.util.UtilString;
+import com.sun.org.apache.bcel.internal.generic.LocalVariableGen;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 
 import javax.script.ScriptException;
@@ -18,7 +19,7 @@ import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class MessagesHandler {
+public class HandlerMessages {
 
     private static String baseDirectory = "messages";
 

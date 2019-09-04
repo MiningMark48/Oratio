@@ -1,5 +1,7 @@
 package com.miningmark48.tidalchatbot;
 
+import com.miningmark48.tidalchatbot.handler.HandlerJsonConfig;
+import com.miningmark48.tidalchatbot.handler.HandlerServerConfig;
 import com.miningmark48.tidalchatbot.reference.Reference;
 import com.miningmark48.tidalchatbot.util.UtilLogger;
 import com.miningmark48.tidalchatbot.util.UtilLogger.LogType;
@@ -27,9 +29,9 @@ public class BotListener extends ListenerAdapter {
         event.getJDA().getSelfUser();
         if (event.getMember() != null && !event.getMessage().getAuthor().getId().equalsIgnoreCase(event.getJDA().getSelfUser().getId())) {
             if (!event.getMember().getEffectiveName().equalsIgnoreCase(event.getJDA().getSelfUser().getName()) /*&& ServerConfigHandler.isAREnabled(event)*/ ) {
-//                if (!ServerConfigHandler.isUserARBlacklisted(event, event.getAuthor().getId())) {
+                if (!HandlerServerConfig.isUserCBBlacklisted(event, event.getAuthor().getId())) {
                     TidalChatbot.handleMessage(event);
-//                }
+                }
             }
         }
 
