@@ -1,0 +1,8 @@
+{
+  "bot": {
+    "botname": "Bot Name",
+    "token": "bot.token",
+    "key": "!",
+    "client id": "client.id"
+  }
+}
