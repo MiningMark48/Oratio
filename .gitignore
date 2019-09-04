@@ -20,9 +20,11 @@ gradlew
 *.bat
 *.idea
 *.iml
-*.json
 *.txt
 
 # Floobits
 *.floo
 *.flooignore
+
+# Specific Files
+config.json
