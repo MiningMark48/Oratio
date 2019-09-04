@@ -1,0 +1,24 @@
+{
+  "messages": [
+    {
+      "triggers": [ "shots", "fired" ],
+      "responses": [ ":gun:" ]
+    },
+    {
+      "triggers": [ "shits", "fired" ],
+      "responses": [ ":poop:" ]
+    },
+    {
+      "triggers": [ "what is love" ],
+      "responses": [ "Baby don't hurt me" ]
+    },
+    {
+      "triggers": [ "do it" ],
+      "responses": [ "Just do it!" ]
+    },
+    {
+      "triggers": [ "avengers" ],
+      "responses": [ "Assemble." ]
+    }
+  ]
+}

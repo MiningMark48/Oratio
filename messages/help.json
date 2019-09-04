@@ -1,0 +1,20 @@
+{
+  "messages": [
+    {
+      "triggers": [ "who", "tidal bot" ],
+      "responses": [ "Tidal Bot is a bot written by MiningMark48 for Discord", "Tidal Bot is a Discord Bot by MiningMark48", "Tidal Bot is love." ]
+    },
+    {
+      "triggers": [ "who", "miningmark48" ],
+      "responses": [ "MiningMark48 is the owner of Tidal Wave", "MiningMark48 is the owner of Tidal Bot", "MiningMark48 does stuff." ]
+    },
+    {
+      "triggers": [ "who", "zetor" ],
+      "responses": [ "Nobody knows." ]
+    },
+    {
+      "triggers" : [ "who", "kaos" ],
+      "responses": [ "Dunno", "Still trying to figure that out" ]
+    }
+  ]
+}

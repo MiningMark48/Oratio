@@ -1,0 +1,19 @@
+{
+  "messages": [
+    {
+      "triggers": [ "hey", "hello", "howdy" ],
+      "responses": [ "hey", "hello", "howdy", "hola", "aloha" ],
+      "type": "or"
+    },
+    {
+      "triggers": [ "bye", "goodbye", "see ya" ],
+      "responses": [ "bye", "goodbye", "biatch, what ya mean" ],
+      "type": "or"
+    },
+    {
+      "triggers": [ "ha", "lol" ],
+      "responses": [ "lol", "hahahaaa", "haha", "haha, wut?" ],
+      "type": "or"
+    }
+  ]
+}

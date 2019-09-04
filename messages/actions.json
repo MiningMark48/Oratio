@@ -1,0 +1,8 @@
+{
+  "messages": [
+    {
+      "triggers": [ "do math" ],
+      "responses": [ "The answer is {math}", "I believe it is {math}", "Hmm... It's {math}" ]
+    }
+  ]
+}
