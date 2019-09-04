@@ -18,7 +18,7 @@ import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class InitializeMessages {
+public class MessagesHandler {
 
     private static String baseDirectory = "messages";
 
