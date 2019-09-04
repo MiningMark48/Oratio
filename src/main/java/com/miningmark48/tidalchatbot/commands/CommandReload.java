@@ -1,5 +1,6 @@
-package com.miningmark48.tidalchatbot.commands.base;
+package com.miningmark48.tidalchatbot.commands;
 
+import com.miningmark48.tidalchatbot.commands.base.ICommand;
 import com.miningmark48.tidalchatbot.messages.MessagesHandler;
 import com.miningmark48.tidalchatbot.reference.Reference;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
