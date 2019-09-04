@@ -13,8 +13,12 @@
       "responses": [ "Nobody knows." ]
     },
     {
-      "triggers" : [ "who", "kaos" ],
+      "triggers": [ "who", "kaos" ],
       "responses": [ "Dunno", "Still trying to figure that out" ]
+    },
+    {
+      "triggers": [ "is", "tidal", "bot", "open", "source" ],
+      "responses": [ "Yes, both Tidal Bot and Tidal Chatbot are open source on Github." ]
     }
   ]
 }
