@@ -2,7 +2,7 @@
   "messages": [
     {
       "triggers": [ "do math" ],
-      "responses": [ "The answer is {math}", "I believe it is {math}", "Hmm... It's {math}" ]
+      "responses": [ "The answer is {math}", "I believe it is {math}", "Hmm... It's {math}", "According to my calculations, the answer is {math}", "I'm never wro-, well, hmm, I think it's {math}" ]
     },
     {
       "triggers": [ "roll a die", "roll a dice" ],
