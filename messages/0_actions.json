@@ -5,6 +5,11 @@
       "responses": [ "The answer is {math}", "I believe it is {math}", "Hmm... It's {math}", "According to my calculations, the answer is {math}", "I'm never wro-, well, hmm, I think it's {math}" ]
     },
     {
+      "triggers": [ "flip a coin", "coin flip", "coin toss" ],
+      "responses": [ "And it's... {coin}!", "I flipped a coin and got {coin}", "It's {coin}!" ],
+      "type": "or"
+    },
+    {
       "triggers": [ "roll a die", "roll a dice" ],
       "responses": [ "Rolling... it's {dice}!", "And it's a... {dice}!", "It's {dice}", "You rolled a {dice}" ],
       "type": "or"

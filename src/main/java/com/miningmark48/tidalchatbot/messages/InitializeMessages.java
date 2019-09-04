@@ -119,6 +119,9 @@ public class InitializeMessages {
                 default:
                     replacement = "";
                     break;
+                case COIN:
+                    replacement = coinResponse(msg, response, rand);
+                    break;
                 case DICE:
                     replacement = diceResponse(msg, response, rand);
                     break;
@@ -132,6 +135,10 @@ public class InitializeMessages {
             return replacement;
         }
         return response;
+    }
+
+    private static String coinResponse(String msg, String response, Random rand) {
+        return response.replace(Actions.COIN.getAction(), rand.nextInt(1) == 0 ? "heads" : "tails");
     }
 
     private static String diceResponse(String msg, String response, Random rand) {

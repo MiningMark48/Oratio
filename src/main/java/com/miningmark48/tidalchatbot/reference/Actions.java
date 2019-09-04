@@ -2,6 +2,7 @@ package com.miningmark48.tidalchatbot.reference;
 
 public enum Actions {
 
+    COIN("coin"),
     DICE("dice"),
     MATH("math"),
     TIME("time");
