@@ -1,8 +1,8 @@
 {
   "messages": [
     {
-      "triggers": [ "hey", "hello", "howdy", "hola", "aloha", "hi", "yo" ],
-      "responses": [ "hey", "hello", "howdy", "hola", "aloha", "hi", "yo" ],
+      "triggers": [ "hey", "hello", "howdy", "hola", "aloha", "hi"],
+      "responses": [ "hey", "hello", "howdy", "hola", "aloha", "hi"],
       "type": "or"
     },
     {
