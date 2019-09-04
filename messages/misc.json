@@ -19,6 +19,10 @@
     {
       "triggers": [ "avengers" ],
       "responses": [ "Assemble." ]
+    },
+    {
+      "triggers": [ "creeper" ],
+      "responses": [ "Aww man." ]
     }
   ]
 }

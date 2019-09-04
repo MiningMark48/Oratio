@@ -1,13 +1,13 @@
 {
   "messages": [
     {
-      "triggers": [ "hey", "hello", "howdy" ],
-      "responses": [ "hey", "hello", "howdy", "hola", "aloha" ],
+      "triggers": [ "hey", "hello", "howdy", "hola", "aloha", "hi", "yo" ],
+      "responses": [ "hey", "hello", "howdy", "hola", "aloha", "hi", "yo" ],
       "type": "or"
     },
     {
       "triggers": [ "bye", "goodbye", "see ya" ],
-      "responses": [ "bye", "goodbye", "biatch, what ya mean" ],
+      "responses": [ "bye", "goodbye", "see ya", "biatch, what ya mean" ],
       "type": "or"
     },
     {
