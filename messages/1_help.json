@@ -22,11 +22,15 @@
     },
     {
       "triggers": [ "how", "disable", "chat", "bot" ],
-      "responses": [ "You can disable the chatbot for yourself by using the command `togglecp`, but what's the fun in that?" ]
+      "responses": [ "You can disable the chatbot for yourself by using the command `togglecp`, but what's the fun in that?", "No! Don't silence me! Please! But you can use the command `togglecp`" ]
     },
     {
-      "triggers": [ "how", "turn off", "chat", "bot" ],
-      "responses": [ "You can disable the chatbot for yourself by using the command `togglecp`, but what's the fun in that?" ]
+      "triggers": [ "turn off", "chat", "bot" ],
+      "responses": [ "You can disable the chatbot for yourself by using the command `togglecp`, but what's the fun in that?", "No! Don't silence me! Please! But you can use the command `togglecp`" ]
+    },
+    {
+      "triggers": ["what", "tidal bot", "commands"],
+      "responses": [ "Tidal Bot's commands can be found be running the command `cmds`.", "Use the command `cmds` to find Tidal Bot's commands." ]
     }
   ]
 }

@@ -1,8 +1,8 @@
 {
   "messages": [
     {
-      "triggers": [ "hey", "hello", "howdy", "hola", "aloha", "hi"],
-      "responses": [ "hey", "hello", "howdy", "hola", "aloha", "hi"],
+      "triggers": [ "hey", "hello", "howdy", "hola", "aloha", "hi ", "yo "],
+      "responses": [ "hey", "hello", "howdy", "hola", "aloha", "hi", "yo"],
       "type": "or"
     },
     {
@@ -11,8 +11,8 @@
       "type": "or"
     },
     {
-      "triggers": [ "ha", "lol" ],
-      "responses": [ "lol", "hahahaaa", "haha", "haha, wut?" ],
+      "triggers": [ "ha", "lol", "xD" ],
+      "responses": [ "lol", "hahahaaa", "haha", "haha, wut?", "xD", "XD", "Muahahahaaa" ],
       "type": "or"
     }
   ]

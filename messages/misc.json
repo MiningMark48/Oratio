@@ -1,6 +1,15 @@
 {
   "messages": [
     {
+      "triggers": [ "do you approve", "can i", "will you", "do you like" ],
+      "responses": [ "No", "Never", "Sure...", "Yeah!", "Definitely!" ],
+      "type": "or"
+    },
+    {
+      "triggers": [ "ask the", "8ball" ],
+      "responses": [ "Maybe.", "Certainly not.", "I hope so.", "Not in your wildest dreams.", "There is a good chance.", "Quite likely.", "I think so.", "I hope not.", "I hope so.", "Never!", "Ahaha! Really?!?", "Pfft.", "Sorry, bucko.", "Hell, yes.", "Hell to the no.", "The future is bleak.", "The future is uncertain.", "I would rather not say.", "Who cares?", "Possibly.", "Never, ever, ever.", "There is a small chance.", "Yes!" ]
+    },
+    {
       "triggers": [ "shots", "fired" ],
       "responses": [ ":gun:" ]
     },
@@ -25,13 +34,61 @@
       "responses": [ "Aww man." ]
     },
     {
-      "triggers": [ "do you approve", "can i", "will you", "do you like" ],
-      "responses": [ "No", "Never", "Sure...", "Yeah!", "Definitely!" ],
-      "type": "or"
+      "triggers": [ "tidal bot is love" ],
+      "responses": [ "Tidal Bot is life." ]
     },
     {
-      "triggers": [ "ask the", "8ball" ],
-      "responses": [ "Maybe.", "Certainly not.", "I hope so.", "Not in your wildest dreams.", "There is a good chance.", "Quite likely.", "I think so.", "I hope not.", "I hope so.", "Never!", "Ahaha! Really?!?", "Pfft.", "Sorry, bucko.", "Hell, yes.", "Hell to the no.", "The future is bleak.", "The future is uncertain.", "I would rather not say.", "Who cares?", "Possibly.", "Never, ever, ever.", "There is a small chance.", "Yes!" ]
+      "triggers": [ "what is life" ],
+      "responses": [ "I would say life is a continuation of time that is able to bend into what ever the mind portrays. Just kidding that was a bullsh*t answer." ]
+    },
+    {
+      "triggers": [ "if only" ],
+      "responses": [ "If only, if only..." ]
+    },
+    {
+      "triggers": [ "yee" ],
+      "responses": [ "Yee yee!" ]
+    },
+    {
+      "triggers": [ "roads" ],
+      "responses": [ "Roads? Where we're going we don't need roads!" ]
+    },
+    {
+      "triggers": [ "88" ],
+      "responses": [ "When this baby hits 88 miles per hour..." ]
+    },
+    {
+      "triggers": [ "who are you" ],
+      "responses": [ "The name's Bond, James Bond." ]
+    },
+    {
+      "triggers": [ "i will end you" ],
+      "responses": [ "Do it.", "No you won't!", "Haha, yeah, sure." ]
+    },
+    {
+      "triggers": [ "uh", "37" ],
+      "responses": [ "I'm 37!" ]
+    },
+    {
+      "triggers": [ "milk", "cat" ],
+      "responses": [ "Oh yeah, you can milk anything with nipples." ]
+    },
+    {
+      "triggers": [ "his name is" ],
+      "responses": [ "John Cena!" ]
+    },
+    {
+      "triggers": [ "neat" ],
+      "responses": [ "Neat is a mod by Vazkii" ]
+    },
+    {
+      "triggers": [ "i love you" ],
+      "responses": [ "I love you 3000" ]
+    },
+    {
+      "triggers": [ "i'm inevitable", "im inevitable" ],
+      "responses": [ "I'm Iron Man." ],
+      "type": "or"
     }
   ]
 }
