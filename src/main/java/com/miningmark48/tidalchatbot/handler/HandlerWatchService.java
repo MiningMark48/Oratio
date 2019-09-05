@@ -11,8 +11,11 @@ public class HandlerWatchService {
     public static void init() {
         try {
             WatchService watchService = FileSystems.getDefault().newWatchService();
-
             Path path = Paths.get(Reference.messageDir);
+
+            if (!Files.exists(path)) {
+                Files.createDirectory(path);
+            }
 
             path.register(watchService, StandardWatchEventKinds.ENTRY_MODIFY);
 
