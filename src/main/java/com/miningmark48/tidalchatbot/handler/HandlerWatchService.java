@@ -12,7 +12,7 @@ public class HandlerWatchService {
             WatchService watchService = FileSystems.getDefault().newWatchService();
             Path path = Paths.get(HandlerMessages.baseDirectory);
 
-            path.register(watchService, StandardWatchEventKinds.ENTRY_MODIFY, StandardWatchEventKinds.ENTRY_DELETE);
+            path.register(watchService, StandardWatchEventKinds.ENTRY_MODIFY);
 
             UtilLogger.log(UtilLogger.LogType.INFO, "Initialized watch service!");
 
