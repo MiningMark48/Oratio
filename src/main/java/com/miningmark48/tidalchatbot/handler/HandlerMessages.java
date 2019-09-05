@@ -160,7 +160,7 @@ public class HandlerMessages {
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(date);
 
-        return response.replace(Actions.TIME.getAction(), String.format("%s:%s %s", calendar.get(Calendar.HOUR), calendar.get(Calendar.MINUTE), calendar.getTimeZone().getDisplayName().replaceAll("\\B.|\\P{L}", "")));
+        return response.replace(Actions.TIME.getAction(), String.format("%s:%s %s %s", calendar.get(Calendar.HOUR), calendar.get(Calendar.MINUTE), calendar.get(Calendar.AM_PM) == Calendar.PM ? "PM" : "AM", calendar.getTimeZone().getDisplayName().replaceAll("\\B.|\\P{L}", "")));
     }
 
 }
