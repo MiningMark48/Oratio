@@ -31,6 +31,11 @@ public class UtilConfig {
                 jw.name("client id").value("bot.id");
                 jw.endObject();
 
+                jw.name("directories");
+                jw.beginObject();
+                jw.name("messages").value("messages");
+                jw.endObject();
+
                 jw.endObject();
 
                 writer.close();
@@ -48,11 +53,14 @@ public class UtilConfig {
 
                     if (jsonObject != null) {
                         JsonObject jsonObjectBot = jsonObject.getAsJsonObject("bot");
+                        JsonObject jsonObjectDir = jsonObject.getAsJsonObject("directories");
 
                         Reference.botName = jsonObjectBot.get("botname").getAsString();
                         Reference.botToken = jsonObjectBot.get("token").getAsString();
                         Reference.botCommandKey = jsonObjectBot.get("key").getAsString();
                         Reference.botClientID = jsonObjectBot.get("client id").getAsString();
+
+                        Reference.messageDir = jsonObjectDir.get("messages").getAsString();
 
                     } else {
                         throw new NullPointerException();

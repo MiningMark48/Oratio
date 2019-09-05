@@ -1,5 +1,6 @@
 package com.miningmark48.tidalchatbot.handler;
 
+import com.miningmark48.tidalchatbot.reference.Reference;
 import com.miningmark48.tidalchatbot.util.UtilLogger;
 
 import java.io.IOException;
@@ -10,7 +11,8 @@ public class HandlerWatchService {
     public static void init() {
         try {
             WatchService watchService = FileSystems.getDefault().newWatchService();
-            Path path = Paths.get(HandlerMessages.baseDirectory);
+
+            Path path = Paths.get(Reference.messageDir);
 
             path.register(watchService, StandardWatchEventKinds.ENTRY_MODIFY);
 

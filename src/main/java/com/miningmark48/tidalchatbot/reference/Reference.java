@@ -11,4 +11,6 @@ public class Reference {
     public static String botCommandKey;
     public static String botClientID;
 
+    public static String messageDir;
+
 }

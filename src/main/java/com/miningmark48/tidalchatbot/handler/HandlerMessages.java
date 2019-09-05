@@ -6,6 +6,7 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.miningmark48.tidalchatbot.reference.Actions;
 import com.miningmark48.tidalchatbot.reference.JsonNames;
+import com.miningmark48.tidalchatbot.reference.Reference;
 import com.miningmark48.tidalchatbot.util.UtilLogger;
 import com.miningmark48.tidalchatbot.util.UtilLogger.LogType;
 import com.miningmark48.tidalchatbot.util.UtilMath;
@@ -20,7 +21,7 @@ import java.util.regex.Pattern;
 
 public class HandlerMessages {
 
-    static final String baseDirectory = "messages";
+    private static final String baseDirectory = Reference.messageDir;
 
     private static ArrayList<ArrayList<String>> triggers = new ArrayList<>();
     private static ArrayList<ArrayList<String>> responses = new ArrayList<>();
@@ -32,6 +33,10 @@ public class HandlerMessages {
         types.clear();
 
         File folder = new File(baseDirectory);
+        if (folder.listFiles() == null) {
+            UtilLogger.log(LogType.INFO, "NO MESSAGE FILES DETECTED");
+            return;
+        }
         ArrayList<File> filesList = new ArrayList<>(Arrays.asList(Objects.requireNonNull(folder.listFiles())));
 
         filesList.forEach(file -> {
