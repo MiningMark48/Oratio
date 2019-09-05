@@ -1,14 +1,11 @@
 package com.miningmark48.tidalchatbot;
 
-import com.miningmark48.tidalchatbot.handler.HandlerJsonConfig;
 import com.miningmark48.tidalchatbot.handler.HandlerServerConfig;
 import com.miningmark48.tidalchatbot.reference.Reference;
 import com.miningmark48.tidalchatbot.util.UtilLogger;
 import com.miningmark48.tidalchatbot.util.UtilLogger.LogType;
 import net.dv8tion.jda.api.JDA;
-import net.dv8tion.jda.api.entities.TextChannel;
 import net.dv8tion.jda.api.events.ReadyEvent;
-import net.dv8tion.jda.api.events.guild.member.GuildMemberJoinEvent;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import org.jetbrains.annotations.NotNull;
@@ -17,7 +14,6 @@ public class BotListener extends ListenerAdapter {
 
     @Override
     public void onMessageReceived(@NotNull MessageReceivedEvent event){
-
         if (event.getJDA().getStatus() == JDA.Status.ATTEMPTING_TO_RECONNECT || event.getJDA().getStatus() == JDA.Status.CONNECTING_TO_WEBSOCKET){
             return;
         }
@@ -34,23 +30,10 @@ public class BotListener extends ListenerAdapter {
                 }
             }
         }
-
-    }
-
-    @Override
-    public void onGuildMemberJoin(@NotNull GuildMemberJoinEvent event){
-
-        TextChannel tc = event.getGuild().getTextChannels().stream().filter(textChannel -> textChannel.getName().equalsIgnoreCase("welcome")).findFirst().orElse(null);
-
-        if(tc != null) {
-            tc.sendMessage("Welcome **" + event.getMember().getEffectiveName() + "** to **" + event.getGuild().getName() + "**!").queue();
-        }
-
     }
 
     @Override
     public void onReady(@NotNull ReadyEvent event){
-        //event.getJDA().getAccountManager().update();
         UtilLogger.log(LogType.STATUS, "Logged in as: " + event.getJDA().getSelfUser().getName());
     }
 
