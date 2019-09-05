@@ -16,7 +16,7 @@
     },
     {
       "triggers": [ "what", "time" ],
-      "responses": [ "It's {time} here!", "Timezones are hard, but it's {time} here.", "Half past a monkey's ass! Just kidding it's {time} "]
+      "responses": [ "It's {time} here!", "Timezones are hard, but it's {time} here.", "Half past a monkey's ass and a quarter to his balls! Just kidding it's {time} "]
     }
   ]
 }
