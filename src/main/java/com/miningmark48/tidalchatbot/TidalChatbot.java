@@ -3,6 +3,7 @@ package com.miningmark48.tidalchatbot;
 import com.miningmark48.tidalchatbot.commands.base.ICommand;
 import com.miningmark48.tidalchatbot.commands.base.InitializeCommands;
 import com.miningmark48.tidalchatbot.handler.HandlerMessages;
+import com.miningmark48.tidalchatbot.handler.HandlerWatchService;
 import com.miningmark48.tidalchatbot.reference.Reference;
 import com.miningmark48.tidalchatbot.util.UtilCommandParser;
 import com.miningmark48.tidalchatbot.util.UtilConfig;
@@ -43,6 +44,7 @@ public class TidalChatbot {
 
         InitializeCommands.init();
         HandlerMessages.init();
+        HandlerWatchService.init();
 
     }
 

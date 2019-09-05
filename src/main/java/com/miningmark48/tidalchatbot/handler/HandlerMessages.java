@@ -10,7 +10,6 @@ import com.miningmark48.tidalchatbot.util.UtilLogger;
 import com.miningmark48.tidalchatbot.util.UtilLogger.LogType;
 import com.miningmark48.tidalchatbot.util.UtilMath;
 import com.miningmark48.tidalchatbot.util.UtilString;
-import com.sun.org.apache.bcel.internal.generic.LocalVariableGen;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 
 import javax.script.ScriptException;
@@ -21,7 +20,7 @@ import java.util.regex.Pattern;
 
 public class HandlerMessages {
 
-    private static String baseDirectory = "messages";
+    static final String baseDirectory = "messages";
 
     private static ArrayList<ArrayList<String>> triggers = new ArrayList<>();
     private static ArrayList<ArrayList<String>> responses = new ArrayList<>();
@@ -64,7 +63,6 @@ public class HandlerMessages {
         });
 
         UtilLogger.log(LogType.INFO, String.format("%s messages initialized.", triggers.size()));
-
     }
 
     public static void handleMessage(MessageReceivedEvent event) {
