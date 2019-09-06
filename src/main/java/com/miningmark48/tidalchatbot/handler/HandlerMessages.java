@@ -10,6 +10,7 @@ import com.miningmark48.tidalchatbot.reference.Reference;
 import com.miningmark48.tidalchatbot.util.UtilLogger;
 import com.miningmark48.tidalchatbot.util.UtilMath;
 import com.miningmark48.tidalchatbot.util.UtilString;
+import com.miningmark48.tidalchatbot.util.UtilTime;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 
 import javax.script.ScriptException;
@@ -155,11 +156,7 @@ public class HandlerMessages {
     }
 
     private static String timeResponse(String msg, String response) {
-        Date date = new Date(System.currentTimeMillis());
-        Calendar calendar = Calendar.getInstance();
-        calendar.setTime(date);
-
-        return response.replace(Actions.TIME.getAction(), String.format("%s:%s %s %s", calendar.get(Calendar.HOUR), calendar.get(Calendar.MINUTE), calendar.get(Calendar.AM_PM) == Calendar.PM ? "PM" : "AM", calendar.getTimeZone().getDisplayName().replaceAll("\\B.|\\P{L}", "")));
+        return response.replace(Actions.TIME.getAction(), UtilTime.getTimeHMAPTZ());
     }
 
 }

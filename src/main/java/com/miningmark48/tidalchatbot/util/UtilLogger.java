@@ -16,7 +16,7 @@ public enum UtilLogger {
 
     public void log(String message) {
         if (this == DEBUG && !TidalChatbot.isDebugMode()) return;
-        System.out.printf("[%s] %s\n", this.name().toUpperCase(), message);
+        System.out.printf("[%s] [%s] %s\n", UtilTime.getTimeHMS(), this.name().toUpperCase(), message);
     }
 
 }
