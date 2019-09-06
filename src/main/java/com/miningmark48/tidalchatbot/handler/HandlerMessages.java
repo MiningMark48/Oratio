@@ -1,9 +1,6 @@
 package com.miningmark48.tidalchatbot.handler;
 
-import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
+import com.google.gson.*;
 import com.miningmark48.tidalchatbot.reference.Actions;
 import com.miningmark48.tidalchatbot.reference.JsonNames;
 import com.miningmark48.tidalchatbot.reference.Reference;
@@ -40,9 +37,8 @@ public class HandlerMessages {
         ArrayList<File> filesList = new ArrayList<>(Arrays.asList(Objects.requireNonNull(folder.listFiles())));
 
         filesList.forEach(file -> {
-            if (!file.isFile() || !file.exists()) return;
+            if (!file.isFile() || !file.exists() || !file.getName().endsWith(".json")) return;
             try {
-
                 JsonParser jp = new JsonParser();
                 InputStream inputStream = new FileInputStream(file);
                 JsonElement root = jp.parse(new InputStreamReader(inputStream));
@@ -64,6 +60,8 @@ public class HandlerMessages {
                 });
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
+            } catch (JsonParseException e) {
+                UtilLogger.WARN.log(String.format("INVALID JSON - %s\n%s", file.getName(), e.getMessage()));
             }
         });
 
