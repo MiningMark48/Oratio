@@ -4,5 +4,8 @@
     "token": "bot.token",
     "key": "!",
     "client id": "client.id"
+  },
+  "directories": {
+  	"messages": "messages"
   }
 }
