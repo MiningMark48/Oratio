@@ -19,11 +19,11 @@ public class HandlerWatchService {
 
             path.register(watchService, StandardWatchEventKinds.ENTRY_MODIFY);
 
-            UtilLogger.log(UtilLogger.LogType.INFO, "Initialized watch service!");
+            UtilLogger.STATUS.log("Initialized watch service");
 
             handleWatchKey(watchService);
         } catch (IOException | InterruptedException e) {
-            UtilLogger.log(UtilLogger.LogType.FATAL, "WATCH SERVICE INITIALIZATION FAILED");
+            UtilLogger.FATAL.log("Watch service initialization failed!");
             e.printStackTrace();
         }
     }
@@ -32,7 +32,7 @@ public class HandlerWatchService {
         WatchKey key;
         while ((key = watchService.take()) != null) {
             key.pollEvents().forEach( q -> {
-                UtilLogger.log(UtilLogger.LogType.INFO, "Changes detected, reloading messages...");
+                UtilLogger.INFO.log("Changes detected, reloading messages...");
                 HandlerMessages.init();
             });
             key.reset();

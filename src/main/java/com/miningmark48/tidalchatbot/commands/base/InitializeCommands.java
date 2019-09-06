@@ -13,7 +13,7 @@ public class InitializeCommands {
         registerCommand("reload", new CommandReload());
         registerCommand("togglecb", new CommandToggleCB());
 
-        UtilLogger.log(UtilLogger.LogType.INFO, TidalChatbot.commands.size() + " commands initialized.");
+        UtilLogger.INFO.log(String.format("%s commands initialized", TidalChatbot.commands.size()));
     }
 
     private static void registerCommand(String trigger, ICommand command) {

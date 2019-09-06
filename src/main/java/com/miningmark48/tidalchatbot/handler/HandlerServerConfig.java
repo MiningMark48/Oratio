@@ -36,8 +36,7 @@ public class HandlerServerConfig {
 
                 writer.close();
 
-                UtilLogger.log(UtilLogger.LogType.INFO, "Server config file created.");
-
+                UtilLogger.INFO.log("Server config file created");
             }
         } catch (Exception e) {
             e.printStackTrace();

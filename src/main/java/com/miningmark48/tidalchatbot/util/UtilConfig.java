@@ -3,14 +3,13 @@ package com.miningmark48.tidalchatbot.util;
 import com.google.gson.*;
 import com.google.gson.stream.JsonWriter;
 import com.miningmark48.tidalchatbot.reference.Reference;
-import com.miningmark48.tidalchatbot.util.UtilLogger.LogType;
 
 import java.io.*;
 
 public class UtilConfig {
 
     public static boolean getConfigs() {
-        UtilLogger.log(LogType.STATUS, "Getting configs...");
+        UtilLogger.STATUS.log("Getting configs...");
 
         try {
             String configFile = "config.json";
@@ -40,7 +39,7 @@ public class UtilConfig {
 
                 writer.close();
 
-                UtilLogger.log(LogType.STATUS, "Config file was created and must be filled in, stopping bot.");
+                UtilLogger.INFO.log("Config file was created as it was not found. Stopping bot.");
                 return false;
             } else {
 
@@ -67,12 +66,12 @@ public class UtilConfig {
                     }
 
                 } catch (NullPointerException e) {
-                    UtilLogger.log(UtilLogger.LogType.FATAL, "Configs were unable to be loaded, stopping bot.");
+                    UtilLogger.FATAL.log("Unable to load configs, stopping bot.");
                     e.printStackTrace();
                     return false;
                 }
 
-                UtilLogger.log(UtilLogger.LogType.STATUS, "Configs were loaded, continuing.");
+                UtilLogger.STATUS.log("Configs loaded, continuing...");
                 return true;
             }
         } catch (IOException e) {

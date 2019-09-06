@@ -8,7 +8,6 @@ import com.miningmark48.tidalchatbot.reference.Actions;
 import com.miningmark48.tidalchatbot.reference.JsonNames;
 import com.miningmark48.tidalchatbot.reference.Reference;
 import com.miningmark48.tidalchatbot.util.UtilLogger;
-import com.miningmark48.tidalchatbot.util.UtilLogger.LogType;
 import com.miningmark48.tidalchatbot.util.UtilMath;
 import com.miningmark48.tidalchatbot.util.UtilString;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
@@ -34,7 +33,7 @@ public class HandlerMessages {
 
         File folder = new File(baseDirectory);
         if (folder.listFiles() == null) {
-            UtilLogger.log(LogType.INFO, "NO MESSAGE FILES DETECTED");
+            UtilLogger.WARN.log("No message files detected!");
             return;
         }
         ArrayList<File> filesList = new ArrayList<>(Arrays.asList(Objects.requireNonNull(folder.listFiles())));
@@ -67,12 +66,10 @@ public class HandlerMessages {
             }
         });
 
-        UtilLogger.log(LogType.INFO, String.format("%s messages initialized.", triggers.size()));
+        UtilLogger.INFO.log(String.format("%s messages initialized.", triggers.size()));
     }
 
     public static void handleMessage(MessageReceivedEvent event) {
-//        UtilLogger.log(LogType.DEBUG, triggers.toString());
-
         String msg = event.getMessage().getContentRaw().toLowerCase();
 
         for (int i = 0; i < triggers.size(); i++) {
@@ -83,7 +80,6 @@ public class HandlerMessages {
                     String type = types.get(i).toLowerCase();
                     if (type.equalsIgnoreCase(JsonNames.OP_AND.getName())) {
                         andIndex++;
-//                        UtilLogger.log(LogType.DEBUG, andIndex + " " + trigArray.size());
                         if (andIndex == trigArray.size()) {
                             sendResponse(event, i, j);
                             return;

@@ -4,7 +4,6 @@ import com.miningmark48.tidalchatbot.handler.HandlerMessages;
 import com.miningmark48.tidalchatbot.handler.HandlerServerConfig;
 import com.miningmark48.tidalchatbot.reference.Reference;
 import com.miningmark48.tidalchatbot.util.UtilLogger;
-import com.miningmark48.tidalchatbot.util.UtilLogger.LogType;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.events.ReadyEvent;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
@@ -35,7 +34,7 @@ public class BotListener extends ListenerAdapter {
 
     @Override
     public void onReady(@NotNull ReadyEvent event){
-        UtilLogger.log(LogType.STATUS, "Logged in as: " + event.getJDA().getSelfUser().getName());
+        UtilLogger.STATUS.log(String.format("Logged in as: %s", event.getJDA().getSelfUser().getName()));
     }
 
 }

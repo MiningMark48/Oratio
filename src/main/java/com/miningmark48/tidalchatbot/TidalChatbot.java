@@ -4,6 +4,7 @@ import com.miningmark48.tidalchatbot.commands.base.ICommand;
 import com.miningmark48.tidalchatbot.commands.base.InitializeCommands;
 import com.miningmark48.tidalchatbot.handler.HandlerMessages;
 import com.miningmark48.tidalchatbot.handler.HandlerWatchService;
+import com.miningmark48.tidalchatbot.reference.ProgramArgs;
 import com.miningmark48.tidalchatbot.reference.Reference;
 import com.miningmark48.tidalchatbot.util.UtilCommandParser;
 import com.miningmark48.tidalchatbot.util.UtilConfig;
@@ -12,7 +13,6 @@ import net.dv8tion.jda.api.AccountType;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.entities.ChannelType;
-import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 
 import java.util.HashMap;
 
@@ -23,11 +23,20 @@ public class TidalChatbot {
 
     public static HashMap<String, ICommand> commands = new HashMap<>();
 
+    private static boolean isDebugMode = false;
+
     public static void main(String[] args) {
+        for (String arg : args) {
+            if (ProgramArgs.valueOf(arg.toUpperCase()).equals(ProgramArgs.DEBUG)) {
+                isDebugMode = true;
+            }
+        }
+
         setupAndConnectBot();
     }
 
     public static void setupAndConnectBot() {
+
         if (!UtilConfig.getConfigs()) {
             return;
         }
@@ -36,7 +45,7 @@ public class TidalChatbot {
             jda = new JDABuilder(AccountType.BOT).addEventListeners(new BotListener()).setToken(Reference.botToken).build().awaitReady();
             jda.setAutoReconnect(true);
 
-            UtilLogger.log(UtilLogger.LogType.STATUS, "Bot started!");
+            UtilLogger.STATUS.log("Bot Started!");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -60,4 +69,7 @@ public class TidalChatbot {
         }
     }
 
+    public static boolean isDebugMode() {
+        return isDebugMode;
+    }
 }
