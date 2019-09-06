@@ -37,7 +37,6 @@ public class TidalChatbot {
             jda.setAutoReconnect(true);
 
             UtilLogger.log(UtilLogger.LogType.STATUS, "Bot started!");
-
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -45,29 +44,20 @@ public class TidalChatbot {
         InitializeCommands.init();
         HandlerMessages.init();
         HandlerWatchService.init();
-
     }
 
     static void handleCommand(UtilCommandParser.CommandContainer cmd) {
         if (commands.containsKey(cmd.invoke)) {
             boolean safe = commands.get(cmd.invoke).called(cmd.args, cmd.event);
-
             if (safe){
                 if (cmd.event.getChannelType().equals(ChannelType.PRIVATE)) {
                     return;
                 }
-
                 commands.get(cmd.invoke).action(cmd.args, cmd.event);
-
             } else {
                 commands.get(cmd.invoke).executed(safe, cmd.event);
             }
-
         }
-    }
-
-    static void handleMessage(MessageReceivedEvent event){
-        HandlerMessages.handleMessage(event);
     }
 
 }
