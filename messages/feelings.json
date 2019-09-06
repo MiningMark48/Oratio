@@ -1,0 +1,22 @@
+{
+  "messages": [
+    {
+      "_comment": "Good",
+      "triggers": [ "good", "well", "fine", "great", "splendid" ],
+      "responses": [ "Well, that's good", "Glad to hear", "Good, good.", "I'm happy for you" ],
+      "type": "or"
+    },
+    {
+      "_comment": "Mixed",
+      "triggers": [ "could be better", "not the greatest", "meh" ],
+      "responses": [ "I know how you feel", "It'll get better", "Yeah..." ],
+      "type": "or"
+    },
+    {
+      "_comment": "Bad",
+      "triggers": [ "bad", "awful", "not good", "shitty" ],
+      "responses": [ "I know how you feel", "It'll get better", "Keep your chin up!", "That sucks" ],
+      "type": "or"
+    }
+  ]
+}

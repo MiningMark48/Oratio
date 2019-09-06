@@ -11,6 +11,11 @@
       "type": "or"
     },
     {
+      "triggers": [ "not much", "nothin much", "ing" ],
+      "responses": [ "Sounds fun", "No fair", "That's cool", "Sweet!", "Better than what I'm stuck doing", "That's not fair!", "I wish I was doing that", "That's pretty cool" ],
+      "type": "or"
+    },
+    {
       "triggers": [ "ha", "lol", "xD" ],
       "responses": [ "lol", "hahahaaa", "haha", "haha, wut?", "xD", "XD", "Muahahahaaa" ],
       "type": "or"
