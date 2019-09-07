@@ -12,7 +12,10 @@ import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 
 import javax.script.ScriptException;
 import java.io.*;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Objects;
+import java.util.Random;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -147,10 +150,10 @@ public class HandlerMessages {
     }
 
     private static String randResponse(String msg, String response, Random rand) {
-        Pattern regex = Pattern.compile("\\{rand:[a-zA-Z<>]+}");
+        Pattern regex = Pattern.compile("\\{rand:[a-zA-Z0-9<>\\-_,'\\s]+}");
         Matcher matcher = regex.matcher(response);
         while (matcher.find()) {
-            Pattern list = Pattern.compile("<([a-zA-Z]+)>");
+            Pattern list = Pattern.compile("<([a-zA-Z0-9-_,'\\s]+)>");
             Matcher mList = list.matcher(matcher.group());
 
             ArrayList<String> options = new ArrayList<>();
