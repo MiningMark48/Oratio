@@ -107,41 +107,62 @@ public class HandlerMessages {
         Matcher matcher = pattern.matcher(response);
 
         ArrayList<String> matches = new ArrayList<>();
+
         while (matcher.find()) {
             matches.add(matcher.group(1));
         }
 
+        String replacement = response;
         Random rand = new Random();
         for (String match : matches) {
-            String replacement;
-            switch (Actions.valueOf(match.toUpperCase())) {
-                default:
-                    replacement = "";
-                    break;
-                case COIN:
-                    replacement = coinResponse(msg, response, rand);
-                    break;
-                case DICE:
-                    replacement = diceResponse(msg, response, rand);
-                    break;
-                case MATH:
-                    replacement = mathResponse(msg, response);
-                    break;
-                case TIME:
-                    replacement = timeResponse(msg, response);
-                    break;
+            if (match.contains(Actions.MATH.getName())) {
+                replacement = mathResponse(msg, replacement);
             }
-            return replacement;
+            replacement = coinResponse(msg, replacement, rand);
+            replacement = randNumResponse(msg, replacement, rand);
+            replacement = randResponse(msg, replacement, rand);
+            replacement = timeResponse(msg, replacement);
         }
-        return response;
+        return replacement;
     }
 
     private static String coinResponse(String msg, String response, Random rand) {
         return response.replace(Actions.COIN.getAction(), rand.nextInt(1) == 0 ? "heads" : "tails");
     }
 
-    private static String diceResponse(String msg, String response, Random rand) {
-        return response.replace(Actions.DICE.getAction(), String.valueOf(rand.nextInt(6) + 1));
+    private static String randNumResponse(String msg, String response, Random rand) {
+        Pattern regex = Pattern.compile("\\{(rand:)(.*[0-9])}");
+        Matcher matcher = regex.matcher(response);
+        while (matcher.find()){
+            if (matcher.group().length() != 0){
+                try {
+                    UtilLogger.DEBUG.log(matcher.group(2));
+                    response = response.replaceAll(regex.pattern(), String.valueOf(rand.nextInt(Integer.parseInt(matcher.group(2))) + 1));
+                } catch (NumberFormatException e){
+                    response = "[ERROR: NFE]";
+                }
+            }
+        }
+        return response;
+    }
+
+    private static String randResponse(String msg, String response, Random rand) {
+        Pattern regex = Pattern.compile("\\{rand:[a-zA-Z<>]+}");
+        Matcher matcher = regex.matcher(response);
+        while (matcher.find()) {
+            Pattern list = Pattern.compile("<([a-zA-Z]+)>");
+            Matcher mList = list.matcher(matcher.group());
+
+            ArrayList<String> options = new ArrayList<>();
+            while (mList.find()) {
+                options.add(mList.group(1));
+            }
+
+            if (matcher.group().length() != 0){
+                response = response.replaceAll(regex.pattern(), options.get(rand.nextInt(options.size())));
+            }
+        }
+        return response;
     }
 
     private static String mathResponse(String msg, String response) {

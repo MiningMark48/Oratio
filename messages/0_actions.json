@@ -6,12 +6,21 @@
     },
     {
       "triggers": [ "flip a coin", "coin flip", "coin toss" ],
-      "responses": [ "And it's... {coin}!", "I flipped a coin and got {coin}", "It's {coin}!" ],
+      "responses": [ "And it's... {rand:<heads><tails>}!", "I flipped a coin and got {rand:<heads><tails>}", "It's {rand:<heads><tails>}!" ],
       "type": "or"
     },
     {
       "triggers": [ "roll a die", "roll a dice" ],
-      "responses": [ "Rolling... it's {dice}!", "And it's a... {dice}!", "It's {dice}", "You rolled a {dice}" ],
+      "responses": [ "Rolling... it's {rand:6}!", "And it's a... {rand:6}!", "It's {rand:6}", "You rolled a {rand:6}" ],
+      "type": "or"
+    },
+    {
+      "triggers": [ "roll a d20" ],
+      "responses": [ "Rolling... it's {rand:20}", "And it's a... {rand:20}!", "It's {rand:20}", "You rolled a {rand:20}" ]
+    },
+    {
+      "triggers": [ "give me a robot number", "i want a robot number" ],
+      "responses": [ "Your new robot number is {rand:1000}", "Hmmm... I like the number {rand:1000}", "Beep, boop. It's {rand:1000}" ],
       "type": "or"
     },
     {
