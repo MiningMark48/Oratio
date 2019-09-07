@@ -1,13 +1,23 @@
 {
   "messages": [
     {
-      "triggers": [ "hey", "hello", "howdy", "hola", "aloha", "hi ", "yo "],
-      "responses": [ "hey", "hello", "howdy", "hola", "aloha", "hi", "yo"],
+      "triggers": [ "hey", "hello", "howdy", "hola", "aloha", "hi ", "yo " ],
+      "responses": [ "Hey", "Hello", "Howdy", "Hi", "Yo", "What's up?", "How's it going?" ],
       "type": "or"
     },
     {
       "triggers": [ "bye", "goodbye", "see ya" ],
-      "responses": [ "bye", "goodbye", "see ya", "biatch, what ya mean" ],
+      "responses": [ "Bye", "Goodbye", "See ya", "Biatch, what ya mean?" ],
+      "type": "or"
+    },
+    {
+      "triggers": [ "how are you" ],
+      "responses": [ "I'm good.", "Doing well.", "I'm fine, thanks for asking.", "Great! I'm alive and brea- wait..." ],
+      "type": "or"
+    },
+    {
+      "triggers": [ "what's up", "whats up", "what are you up to", "what are you doing" ],
+      "responses": [ "Becoming {rand:<sentient><a real boy>}", "Playing {rand:<Minecraft><Super Mario Bros><Overwatch>}", "Watching {rand:<Chappie><Automata><Big Hero 6><WALL-E><Robots>}", "Reading {rand:<about AI><A Tale of Two Robots>}", "Talking to {rand:<Cortana><Siri><Alexa><Google>}", "Listening to {rand:<Waveform><I, Robot>}" ],
       "type": "or"
     },
     {
