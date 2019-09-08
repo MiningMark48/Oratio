@@ -11,11 +11,11 @@
     },
     {
       "triggers": [ "shots", "fired" ],
-      "responses": [ ":gun:" ]
+      "reactions": [ "\uD83D\uDD2B" ]
     },
     {
       "triggers": [ "shits", "fired" ],
-      "responses": [ ":poop:" ]
+      "reactions": [ "\uD83D\uDCA9" ]
     },
     {
       "triggers": [ "what is love" ],
@@ -71,7 +71,8 @@
     },
     {
       "triggers": [ "milk", "cat" ],
-      "responses": [ "Oh yeah, you can milk anything with nipples." ]
+      "responses": [ "Oh yeah, you can milk anything with nipples." ],
+      "reactions": [ "\uD83D\uDC31" ]
     },
     {
       "triggers": [ "his name is" ],
@@ -83,12 +84,17 @@
     },
     {
       "triggers": [ "i love you" ],
-      "responses": [ "I love you 3000" ]
+      "responses": [ "I love you 3000" ],
+      "reactions": [ "\u2764" ]
     },
     {
       "triggers": [ "i'm inevitable", "im inevitable" ],
       "responses": [ "I'm Iron Man." ],
       "type": "or"
+    },
+    {
+      "triggers": [ "run", "barry" ],
+      "reactions": [ "\u26A1" ]
     }
   ]
 }

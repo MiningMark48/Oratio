@@ -138,6 +138,7 @@ public class HandlerMessages {
             replacement = randNumResponse(msg, replacement, rand);
             replacement = randResponse(msg, replacement, rand);
             replacement = timeResponse(msg, replacement);
+            replacement = keyResponse(msg, replacement);
         }
         return replacement;
     }
@@ -192,6 +193,10 @@ public class HandlerMessages {
 
     private static String timeResponse(String msg, String response) {
         return response.replace(Actions.TIME.getAction(), UtilTime.getTimeHMAPTZ());
+    }
+
+    private static String keyResponse(String msg, String response) {
+        return response.replace(Actions.KEY.getAction(), Reference.botCommandKey);
     }
 
 }
