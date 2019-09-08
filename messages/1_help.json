@@ -6,15 +6,15 @@
     },
     {
       "triggers": [ "who", "miningmark48" ],
-      "responses": [ "MiningMark48 is the owner of Tidal Wave", "MiningMark48 is the owner of Tidal Bot", "MiningMark48 does stuff." ]
+      "responses": [ "MiningMark48 is the owner of Tidal Wave, developer of Tidal Bot and Tidal Chatbot as well as various Minecraft mods" ]
     },
     {
-      "triggers": [ "who", "zetor" ],
-      "responses": [ "Nobody knows." ]
+      "triggers": [ "who", "cody" ],
+      "responses": [ "Cody, also known as Zetor, is a member of Tidal Wave and the texture artist for TW Minecraft mods." ]
     },
     {
       "triggers": [ "who", "kaos" ],
-      "responses": [ "Dunno", "Still trying to figure that out" ]
+      "responses": [ "Kaosjr is a member of Tidal Wave who contributes to TW Minecraft mods and other projects." ]
     },
     {
       "triggers": [ "is", "tidal", "bot", "open", "source" ],
@@ -29,8 +29,16 @@
       "responses": [ "You can disable the chatbot for yourself by using the command `{key}togglecp`, but what's the fun in that?", "No! Don't silence me! Please! But you can use the command `{key}togglecp`" ]
     },
     {
-      "triggers": ["what", "tidal bot", "commands"],
+      "triggers": [ "what", "tidal bot", "commands" ],
       "responses": [ "Tidal Bot's commands can be found be running the command `{key}cmds`.", "Use the command `{key}cmds` to find Tidal Bot's commands." ]
+    },
+    {
+      "triggers": [ "what", "tidal bot", "key" ],
+      "responses": [ "The bot key is `{key}`", "It's `{key}`" ]
+    },
+    {
+      "triggers": [ "where", "download", "minecraft", "mod" ],
+      "responses": [ "Minecraft mods can be found at https://www.curseforge.com/minecraft/mc-mods/." ]
     }
   ]
 }
