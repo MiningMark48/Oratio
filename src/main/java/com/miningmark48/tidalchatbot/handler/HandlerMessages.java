@@ -12,10 +12,7 @@ import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 
 import javax.script.ScriptException;
 import java.io.*;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Objects;
-import java.util.Random;
+import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -23,9 +20,10 @@ public class HandlerMessages {
 
     private static final String baseDirectory = Reference.messageDir;
 
-    private static ArrayList<ArrayList<String>> triggers = new ArrayList<>();
-    private static ArrayList<ArrayList<String>> responses = new ArrayList<>();
-    private static ArrayList<String> types = new ArrayList<>();
+    private static HashMap<Integer, ArrayList<String>> triggers = new HashMap<>();
+    private static HashMap<Integer, ArrayList<String>> responses = new HashMap<>();
+    private static HashMap<Integer, ArrayList<String>> reactions = new HashMap<>();
+    private static HashMap<Integer, String> types = new HashMap<>();
 
     public static void init() {
         triggers.clear();
@@ -39,7 +37,8 @@ public class HandlerMessages {
         }
         ArrayList<File> filesList = new ArrayList<>(Arrays.asList(Objects.requireNonNull(folder.listFiles())));
 
-        filesList.forEach(file -> {
+        int index = 0;
+        for (File file : filesList) {
             if (!file.isFile() || !file.exists() || !file.getName().endsWith(".json")) return;
             try {
                 JsonParser jp = new JsonParser();
@@ -48,60 +47,74 @@ public class HandlerMessages {
 
                 JsonArray messages = root.getAsJsonObject().getAsJsonArray(JsonNames.MESSAGES.getName());
 
-                messages.forEach(q -> {
+                for (JsonElement q : messages) {
+                    index++;
+
                     JsonObject obj = q.getAsJsonObject();
                     ArrayList<String> jsonTriggers = new ArrayList<>();
                     obj.getAsJsonArray(JsonNames.TRIGGERS.getName()).forEach(trig -> jsonTriggers.add(trig.getAsString().toLowerCase()));
 
                     ArrayList<String> jsonResponses = new ArrayList<>();
-                    obj.getAsJsonArray(JsonNames.RESPONSES.getName()).forEach(resp -> jsonResponses.add(resp.getAsString()));
+                    if (obj.getAsJsonArray(JsonNames.RESPONSES.getName()) != null) obj.getAsJsonArray(JsonNames.RESPONSES.getName()).forEach(resp -> jsonResponses.add(resp.getAsString()));
 
-                    types.add(obj.get(JsonNames.TYPE.getName()) != null ? obj.get(JsonNames.TYPE.getName()).getAsString().toLowerCase() : JsonNames.OP_AND.getName());
+                    ArrayList<String> jsonReactions = new ArrayList<>();
+                    if (obj.getAsJsonArray(JsonNames.REACTIONS.getName()) != null) obj.getAsJsonArray(JsonNames.REACTIONS.getName()).forEach(reac -> jsonReactions.add(reac.getAsString()));
 
-                    triggers.add(jsonTriggers);
-                    responses.add(jsonResponses);
-                });
+                    types.put(index, obj.get(JsonNames.TYPE.getName()) != null ? obj.get(JsonNames.TYPE.getName()).getAsString().toLowerCase() : JsonNames.OP_AND.getName());
+
+                    triggers.put(index, jsonTriggers);
+                    if (!jsonResponses.isEmpty()) responses.put(index, jsonResponses);
+                    if (!jsonReactions.isEmpty()) reactions.put(index, jsonReactions);
+                }
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             } catch (JsonParseException e) {
                 UtilLogger.WARN.log(String.format("INVALID JSON - %s\n%s", file.getName(), e.getMessage()));
             }
-        });
+        }
 
         UtilLogger.INFO.log(String.format("%s messages initialized.", triggers.size()));
     }
 
+    @SuppressWarnings("Duplicates")
     public static void handleMessage(MessageReceivedEvent event) {
         String msg = event.getMessage().getContentRaw().toLowerCase();
+        Random rand = new Random();
 
-        for (int i = 0; i < triggers.size(); i++) {
-            ArrayList<String> trigArray = triggers.get(i);
+        for (Map.Entry<Integer, ArrayList<String>> entry : triggers.entrySet()) {
+            ArrayList<String> trigArray = entry.getValue();
             int andIndex = 0;
             for (int j = 0; j < trigArray.size(); j++) {
                 if (msg.contains(trigArray.get(j))) {
-                    String type = types.get(i).toLowerCase();
+                    String type = types.get(entry.getKey()).toLowerCase();
                     if (type.equalsIgnoreCase(JsonNames.OP_AND.getName())) {
                         andIndex++;
                         if (andIndex == trigArray.size()) {
-                            sendResponse(event, i, j);
+                            if (responses.containsKey(entry.getKey())) sendResponse(event, entry.getKey(), rand);
+                            if (reactions.containsKey(entry.getKey())) addReaction(event, entry.getKey(), rand);
                             return;
                         }
                     } else if (type.equalsIgnoreCase(JsonNames.OP_OR.getName())) {
-                        sendResponse(event, i, j);
+                        if (responses.containsKey(entry.getKey())) sendResponse(event, entry.getKey(), rand);
+                        if (reactions.containsKey(entry.getKey())) addReaction(event, entry.getKey(), rand);
                         return;
                     }
                 }
             }
         }
-
     }
 
-    private static void sendResponse(MessageReceivedEvent event, int index, int index2) {
+    private static void sendResponse(MessageReceivedEvent event, int index, Random rand) {
         ArrayList<String> respArray = responses.get(index);
-        Random rand = new Random();
         String response = responses.get(index).get(rand.nextInt(respArray.size()));
         response = handleActions(event, response);
         event.getTextChannel().sendMessage(UtilString.capitalize(response)).queue();
+    }
+
+    private static void addReaction(MessageReceivedEvent event, int index, Random rand) {
+        ArrayList<String> reacArray = reactions.get(index);
+        String reaction = reactions.get(index).get(rand.nextInt(reacArray.size()));
+        event.getMessage().addReaction(reaction).queue();
     }
 
     private static String handleActions(MessageReceivedEvent event, String response) {

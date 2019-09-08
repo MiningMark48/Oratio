@@ -3,6 +3,7 @@ package com.miningmark48.tidalchatbot.reference;
 public enum JsonNames {
 
     MESSAGES("messages"),
+    REACTIONS("reactions"),
     RESPONSES("responses"),
     TRIGGERS("triggers"),
     TYPE("type"),
