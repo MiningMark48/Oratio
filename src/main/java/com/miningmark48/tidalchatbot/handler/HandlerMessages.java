@@ -12,6 +12,7 @@ import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 
 import javax.script.ScriptException;
 import java.io.*;
+import java.nio.file.Files;
 import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -136,6 +137,7 @@ public class HandlerMessages {
             }
             replacement = coinResponse(msg, replacement, rand);
             replacement = randNumResponse(msg, replacement, rand);
+            replacement = randListResponse(msg, replacement, rand);
             replacement = randResponse(msg, replacement, rand);
             replacement = timeResponse(msg, replacement);
             replacement = keyResponse(msg, replacement);
@@ -163,11 +165,33 @@ public class HandlerMessages {
         return response;
     }
 
-    private static String randResponse(String msg, String response, Random rand) {
-        Pattern regex = Pattern.compile("\\{rand:[a-zA-Z0-9<>\\-_,'\\s]+}");
+    private static String randListResponse(String msg, String response, Random rand) {
+        Pattern regex = Pattern.compile("\\{rand:\\?[a-zA-Z0-9<>\\-+_,#'.\\s]+\\?}");
         Matcher matcher = regex.matcher(response);
         while (matcher.find()) {
-            Pattern list = Pattern.compile("<([a-zA-Z0-9-_,'\\s]+)>");
+            Pattern pFile = Pattern.compile("\\?([a-zA-Z0-9\\-+_,#'.\\s]+)\\?");
+            Matcher mFile = pFile.matcher(matcher.group());
+
+            while (mFile.find()) {
+                try {
+                    File file = new File(String.format("%s\\lists\\%s", baseDirectory, mFile.group(1)));
+                    if (file.exists()) {
+                        List<String> contents = Files.readAllLines(file.toPath());
+                        response = response.replaceFirst(regex.pattern(), contents.get(rand.nextInt(contents.size())));
+                    }
+                } catch (IOException e) {
+                    UtilLogger.FATAL.log("ERROR READING FILE\n" + e.getMessage());
+                }
+            }
+        }
+        return response;
+    }
+
+    private static String randResponse(String msg, String response, Random rand) {
+        Pattern regex = Pattern.compile("\\{rand:[a-zA-Z0-9<>\\-+_,#'\\s]+}");
+        Matcher matcher = regex.matcher(response);
+        while (matcher.find()) {
+            Pattern list = Pattern.compile("<([a-zA-Z0-9\\-+_,#'\\s]+)>");
             Matcher mList = list.matcher(matcher.group());
 
             ArrayList<String> options = new ArrayList<>();
@@ -176,7 +200,7 @@ public class HandlerMessages {
             }
 
             if (matcher.group().length() != 0){
-                response = response.replaceAll(regex.pattern(), options.get(rand.nextInt(options.size())));
+                response = response.replaceFirst(regex.pattern(), options.get(rand.nextInt(options.size())));
             }
         }
         return response;

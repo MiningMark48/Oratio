@@ -1,0 +1,20 @@
+{
+  "messages": [
+    {
+      "triggers": [ "what", "programming", "language" ],
+      "responses": [ "I use {rand:?programming_languages.txt?} for {rand:<basic><complex><random>} {rand:<scripts><programs><games>}." ]
+    },
+    {
+      "triggers": [ "what", "favorite", "game"],
+      "responses": ["My favorite game is {rand:?games.txt?} on {rand:?consoles.txt?}"]
+    },
+    {
+      "triggers": [ "what", "game", "playing" ],
+      "responses": [ "I'm playing this {rand:<new><old><sick><dope><stupid><cool>} game called {rand:?games.txt?} on {rand:?consoles.txt?}.", "Some game my {rand:?relationships.txt?} got me for {rand:?holidays.txt?} to play on {rand:?consoles.txt?}. It's called {rand:?games.txt?}." ]
+    },
+    {
+      "triggers": [ "game console combo" ],
+      "responses": [ "{rand:?games.txt?} on {rand:?consoles.txt?}" ]
+    }
+  ]
+}

@@ -20,7 +20,6 @@ gradlew
 *.bat
 *.idea
 *.iml
-*.txt
 
 # Floobits
 *.floo

@@ -26,7 +26,7 @@
     },
     {
       "triggers": [ "turn off", "chat", "bot" ],
-      "responses": [ "You can disable the chatbot for yourself by using the command `{key}togglecp`, but what's the fun in that?", "No! Don't silence me! Please! But you can use the command `{key}togglecp`" ]
+      "responses": [ "You can disable the chatbot for yourself by using the command `{key}togglecb`, but what's the fun in that?", "No! Don't silence me! Please! But you can use the command `{key}togglecb`" ]
     },
     {
       "triggers": [ "what", "tidal bot", "commands" ],
@@ -39,6 +39,10 @@
     {
       "triggers": [ "where", "download", "minecraft", "mod" ],
       "responses": [ "Minecraft mods can be found at https://www.curseforge.com/minecraft/mc-mods/." ]
+    },
+    {
+      "triggers": [ "server", "host" ],
+      "responses": [ "We use Nodecraft! Use code `MiningMark48` for 30% off your first month of service!" ]
     }
   ]
 }

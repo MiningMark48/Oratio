@@ -17,11 +17,11 @@
     },
     {
       "triggers": [ "what's up", "whats up", "what are you up to", "what are you doing" ],
-      "responses": [ "Becoming {rand:<sentient><a real boy>}", "Playing {rand:<Minecraft><Super Mario Bros><Overwatch>}", "Watching {rand:<Chappie><Automata><Big Hero 6><WALL-E><Robots>}", "Reading {rand:<about AI><A Tale of Two Robots>}", "Talking to {rand:<Cortana><Siri><Alexa><Google>}", "Listening to {rand:<Waveform><I, Robot>}" ],
+      "responses": [ "Becoming {rand:<sentient><a real boy>}", "Playing {rand:?games.txt?} on {rand:?consoles.txt?}", "Watching {rand:<Chappie><Automata><Big Hero 6><WALL-E><Robots>}", "Reading {rand:<about AI><A Tale of Two Robots>}", "Talking to {rand:<Cortana><Siri><Alexa><Google>}", "Listening to {rand:<Waveform><I, Robot>}" ],
       "type": "or"
     },
     {
-      "triggers": [ "not much", "nothin much", "ing" ],
+      "triggers": [ "not much", "nothin much", "playing", "coding", "programming", "talking" ],
       "responses": [ "Sounds fun", "No fair", "That's cool", "Sweet!", "Better than what I'm stuck doing", "That's not fair!", "I wish I was doing that", "That's pretty cool" ],
       "type": "or"
     },

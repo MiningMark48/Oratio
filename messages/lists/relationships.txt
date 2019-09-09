@@ -1,0 +1,16 @@
+mom
+dad
+grandma
+grandpa
+aunt
+uncle
+cousin
+brother
+sister
+girlfriend
+boyfriend
+ex
+husband
+wife
+friend
+bff
