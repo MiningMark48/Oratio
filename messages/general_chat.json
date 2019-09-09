@@ -17,7 +17,7 @@
     },
     {
       "triggers": [ "what's up", "whats up", "what are you up to", "what are you doing" ],
-      "responses": [ "Becoming {rand:<sentient><a real boy>}", "Playing {rand:?games.txt?} on {rand:?consoles.txt?}", "Watching {rand:<Chappie><Automata><Big Hero 6><WALL-E><Robots>}", "Reading {rand:<about AI><A Tale of Two Robots>}", "Talking to {rand:<Cortana><Siri><Alexa><Google>}", "Listening to {rand:<Waveform><I, Robot>}" ],
+      "responses": [ "Becoming {rand:<sentient><a real boy>}", "Playing {rand:?games.txt?} on {rand:?consoles.txt?}", "Watching {rand:?movies.txt?}", "Reading {rand:<about AI><A Tale of Two Robots>}", "Talking to {rand:<Cortana><Siri><Alexa><Google>}", "Listening to {rand:<Waveform><I, Robot>}" ],
       "type": "or"
     },
     {

@@ -1,5 +1,4 @@
 BASIC
-HTML
 BATCH
 C
 C#
@@ -10,6 +9,7 @@ Elixr
 Erlang
 Go
 Haskell
+HTML
 Java
 Javascript
 Kotlin

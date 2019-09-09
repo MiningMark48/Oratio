@@ -15,6 +15,10 @@
     {
       "triggers": [ "game console combo" ],
       "responses": [ "{rand:?games.txt?} on {rand:?consoles.txt?}" ]
+    },
+    {
+      "triggers": [ "what", "movie", "watching" ],
+      "responses": [ "I am watching this {rand:<new><old><sick><dope><stupid><cool>} movie called {rand:?movies.txt?}." ]
     }
   ]
 }
