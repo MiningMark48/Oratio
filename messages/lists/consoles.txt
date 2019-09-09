@@ -6,7 +6,7 @@ Atari Lynx
 Dreamcast
 Game Boy
 Game Boy Advance
-Game Boy Colour
+Game Boy Color
 GameCube
 Game Gear
 Genesis
