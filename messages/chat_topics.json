@@ -17,6 +17,10 @@
       "responses": [ "{rand:?games.txt?} on {rand:?consoles.txt?}" ]
     },
     {
+      "triggers": [ "what", "favorite", "movie" ], 
+      "responses": [ "My favorite movie is {rand:?movies.txt?}.", "I'd probably have to say {rand:?movies.txt?}", "My favorite movie is probably... I'm gonna say {rand:?movies.txt?}" ]
+    },
+    {
       "triggers": [ "what", "movie", "watching" ],
       "responses": [ "I am watching this {rand:<new><old><sick><dope><stupid><cool>} movie called {rand:?movies.txt?}." ]
     }
