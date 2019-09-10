@@ -1,9 +1,9 @@
-package com.miningmark48.tidalchatbot;
+package com.miningmark48.oratio;
 
-import com.miningmark48.tidalchatbot.handler.HandlerMessages;
-import com.miningmark48.tidalchatbot.handler.HandlerServerConfig;
-import com.miningmark48.tidalchatbot.reference.Reference;
-import com.miningmark48.tidalchatbot.util.UtilLogger;
+import com.miningmark48.oratio.handler.HandlerMessages;
+import com.miningmark48.oratio.handler.HandlerServerConfig;
+import com.miningmark48.oratio.reference.Reference;
+import com.miningmark48.oratio.util.UtilLogger;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.events.ReadyEvent;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
@@ -19,7 +19,7 @@ public class BotListener extends ListenerAdapter {
         }
 
         if(event.getMessage().getContentRaw().startsWith(Reference.botCommandKey) && !event.getMessage().getAuthor().getId().equalsIgnoreCase(event.getJDA().getSelfUser().getId())) {
-            TidalChatbot.handleCommand(TidalChatbot.parser.parse(event.getMessage().getContentRaw(), event));
+            Oratio.handleCommand(Oratio.parser.parse(event.getMessage().getContentRaw(), event));
         }
 
         event.getJDA().getSelfUser();

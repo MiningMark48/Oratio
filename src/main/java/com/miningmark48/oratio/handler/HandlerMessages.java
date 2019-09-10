@@ -1,13 +1,13 @@
-package com.miningmark48.tidalchatbot.handler;
+package com.miningmark48.oratio.handler;
 
 import com.google.gson.*;
-import com.miningmark48.tidalchatbot.reference.Actions;
-import com.miningmark48.tidalchatbot.reference.JsonNames;
-import com.miningmark48.tidalchatbot.reference.Reference;
-import com.miningmark48.tidalchatbot.util.UtilLogger;
-import com.miningmark48.tidalchatbot.util.UtilMath;
-import com.miningmark48.tidalchatbot.util.UtilString;
-import com.miningmark48.tidalchatbot.util.UtilTime;
+import com.miningmark48.oratio.reference.Actions;
+import com.miningmark48.oratio.reference.JsonNames;
+import com.miningmark48.oratio.reference.Reference;
+import com.miningmark48.oratio.util.UtilLogger;
+import com.miningmark48.oratio.util.UtilMath;
+import com.miningmark48.oratio.util.UtilString;
+import com.miningmark48.oratio.util.UtilTime;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 
 import javax.script.ScriptException;

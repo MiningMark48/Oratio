@@ -1,8 +1,8 @@
-package com.miningmark48.tidalchatbot.commands;
+package com.miningmark48.oratio.commands;
 
-import com.miningmark48.tidalchatbot.commands.base.ICommand;
-import com.miningmark48.tidalchatbot.handler.HandlerServerConfig;
-import com.miningmark48.tidalchatbot.reference.Reference;
+import com.miningmark48.oratio.commands.base.ICommand;
+import com.miningmark48.oratio.handler.HandlerServerConfig;
+import com.miningmark48.oratio.reference.Reference;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 
 public class CommandToggleCB implements ICommand {

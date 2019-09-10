@@ -1,10 +1,10 @@
-package com.miningmark48.tidalchatbot.handler;
+package com.miningmark48.oratio.handler;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonArray;
 import com.google.gson.stream.JsonWriter;
-import com.miningmark48.tidalchatbot.util.UtilLogger;
+import com.miningmark48.oratio.util.UtilLogger;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 
 import java.io.File;

@@ -1,8 +1,8 @@
-package com.miningmark48.tidalchatbot.util;
+package com.miningmark48.oratio.util;
 
 import com.google.gson.*;
 import com.google.gson.stream.JsonWriter;
-import com.miningmark48.tidalchatbot.reference.Reference;
+import com.miningmark48.oratio.reference.Reference;
 
 import java.io.*;
 

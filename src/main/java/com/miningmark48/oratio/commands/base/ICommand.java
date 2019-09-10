@@ -1,4 +1,4 @@
-package com.miningmark48.tidalchatbot.commands.base;
+package com.miningmark48.oratio.commands.base;
 
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 

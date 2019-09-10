@@ -1,4 +1,4 @@
-package com.miningmark48.tidalchatbot.reference;
+package com.miningmark48.oratio.reference;
 
 public enum ProgramArgs {
 

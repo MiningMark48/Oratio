@@ -1,4 +1,4 @@
-package com.miningmark48.tidalchatbot.handler;
+package com.miningmark48.oratio.handler;
 
 import com.google.gson.*;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;

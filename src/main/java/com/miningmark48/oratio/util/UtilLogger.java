@@ -1,6 +1,6 @@
-package com.miningmark48.tidalchatbot.util;
+package com.miningmark48.oratio.util;
 
-import com.miningmark48.tidalchatbot.TidalChatbot;
+import com.miningmark48.oratio.Oratio;
 
 public enum UtilLogger {
 
@@ -29,7 +29,7 @@ public enum UtilLogger {
     }
 
     public void log(String message) {
-        if (this == DEBUG && !TidalChatbot.isDebugMode()) return;
+        if (this == DEBUG && !Oratio.isDebugMode()) return;
         System.out.printf("%s[%s] [%s] %s%s\n", getColor(), UtilTime.getTimeHMS(), this.name().toUpperCase(), message, getReset());
     }
 

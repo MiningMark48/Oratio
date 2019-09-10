@@ -1,7 +1,7 @@
-package com.miningmark48.tidalchatbot.commands;
+package com.miningmark48.oratio.commands;
 
-import com.miningmark48.tidalchatbot.commands.base.ICommand;
-import com.miningmark48.tidalchatbot.util.UtilLogger;
+import com.miningmark48.oratio.commands.base.ICommand;
+import com.miningmark48.oratio.util.UtilLogger;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 
 import java.time.temporal.ChronoUnit;

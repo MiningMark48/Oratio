@@ -1,14 +1,14 @@
-package com.miningmark48.tidalchatbot;
+package com.miningmark48.oratio;
 
-import com.miningmark48.tidalchatbot.commands.base.ICommand;
-import com.miningmark48.tidalchatbot.commands.base.InitializeCommands;
-import com.miningmark48.tidalchatbot.handler.HandlerMessages;
-import com.miningmark48.tidalchatbot.handler.HandlerWatchService;
-import com.miningmark48.tidalchatbot.reference.ProgramArgs;
-import com.miningmark48.tidalchatbot.reference.Reference;
-import com.miningmark48.tidalchatbot.util.UtilCommandParser;
-import com.miningmark48.tidalchatbot.util.UtilConfig;
-import com.miningmark48.tidalchatbot.util.UtilLogger;
+import com.miningmark48.oratio.commands.base.ICommand;
+import com.miningmark48.oratio.commands.base.InitializeCommands;
+import com.miningmark48.oratio.handler.HandlerMessages;
+import com.miningmark48.oratio.handler.HandlerWatchService;
+import com.miningmark48.oratio.reference.ProgramArgs;
+import com.miningmark48.oratio.reference.Reference;
+import com.miningmark48.oratio.util.UtilCommandParser;
+import com.miningmark48.oratio.util.UtilConfig;
+import com.miningmark48.oratio.util.UtilLogger;
 import net.dv8tion.jda.api.AccountType;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
@@ -16,7 +16,7 @@ import net.dv8tion.jda.api.entities.ChannelType;
 
 import java.util.HashMap;
 
-public class TidalChatbot {
+public class Oratio {
 
     public static JDA jda;
     static final UtilCommandParser parser = new UtilCommandParser();

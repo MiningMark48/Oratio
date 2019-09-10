@@ -1,7 +1,7 @@
-package com.miningmark48.tidalchatbot.handler;
+package com.miningmark48.oratio.handler;
 
-import com.miningmark48.tidalchatbot.reference.Reference;
-import com.miningmark48.tidalchatbot.util.UtilLogger;
+import com.miningmark48.oratio.reference.Reference;
+import com.miningmark48.oratio.util.UtilLogger;
 
 import java.io.IOException;
 import java.nio.file.*;

@@ -1,4 +1,4 @@
-package com.miningmark48.tidalchatbot.util;
+package com.miningmark48.oratio.util;
 
 public class UtilString {
 

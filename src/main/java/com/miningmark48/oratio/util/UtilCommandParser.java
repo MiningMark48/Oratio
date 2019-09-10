@@ -1,6 +1,6 @@
-package com.miningmark48.tidalchatbot.util;
+package com.miningmark48.oratio.util;
 
-import com.miningmark48.tidalchatbot.reference.Reference;
+import com.miningmark48.oratio.reference.Reference;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 
 import java.util.ArrayList;
