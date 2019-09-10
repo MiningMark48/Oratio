@@ -10,7 +10,7 @@
     },
     {
       "triggers": [ "what", "game", "playing" ],
-      "responses": [ "I'm playing this {rand:<new><old><sick><dope><stupid><cool>} game called {rand:?games.txt?} on {rand:?consoles.txt?}.", "Some game my {rand:?relationships.txt?} got me for {rand:?holidays.txt?} to play on {rand:?consoles.txt?}. It's called {rand:?games.txt?}." ]
+      "responses": [ "I'm playing this {rand:<new><old><sick><dope><stupid><cool>} game called {rand:?games.txt?} on {rand:?consoles.txt?}.", "Some game my {rand:?relationships.txt?} got me for {rand:?holidays.txt?} to play on {rand:?consoles.txt?}. It's called {rand:?games.txt?}.", "Your mom." ]
     },
     {
       "triggers": [ "game console combo" ],

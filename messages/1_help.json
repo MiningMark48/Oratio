@@ -1,8 +1,12 @@
 {
   "messages": [
     {
+      "triggers": [ "who", "oratio" ],
+      "responses": [ "I'm a chatbot written by MiningMark48. I will talk to you! Try asking me what my favorite {rand:<game><movie>} is." ]
+    },
+    {
       "triggers": [ "who", "tidal bot" ],
-      "responses": [ "Tidal Bot is a bot written by MiningMark48 for Discord", "Tidal Bot is a Discord Bot by MiningMark48", "Tidal Bot is love." ]
+      "responses": [ "Tidal Bot is a bot written by MiningMark48 for Discord", "Tidal Bot is a Discord Bot by MiningMark48" ]
     },
     {
       "triggers": [ "who", "miningmark48" ],
@@ -18,11 +22,19 @@
     },
     {
       "triggers": [ "is", "tidal", "bot", "open", "source" ],
-      "responses": [ "Yes, both Tidal Bot and Tidal Chatbot are open source on Github." ]
+      "responses": [ "Yes, Tidal Bot is open source on Github at https://github.com/MiningMark48/Tidal-Bot." ]
+    },
+    {
+      "triggers": [ "is", "oratio", "open", "source" ],
+      "responses": [ "Yes, Oratio is open source on Github at https://github.com/MiningMark48/Tidal-Chatbot." ]
     },
     {
       "triggers": [ "how", "disable", "chat", "bot" ],
-      "responses": [ "You can disable the chatbot for yourself by using the command `togglecp`, but what's the fun in that?", "No! Don't silence me! Please! But you can use the command `togglecp`" ]
+      "responses": [ "You can disable me for just you by using the command `togglecp`, but what's the fun in that?", "No! Don't silence me! Please! But you can use the command `togglecp`" ]
+    },
+    {
+      "triggers": [ "how", "disable", "oratio" ],
+      "responses": [ "You can disable me for just you by using the command `togglecp`, but what's the fun in that?", "No! Don't silence me! Please! But you can use the command `togglecp`" ]
     },
     {
       "triggers": [ "turn off", "chat", "bot" ],

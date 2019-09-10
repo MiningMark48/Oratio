@@ -40,37 +40,41 @@ public class HandlerMessages {
 
         int index = 0;
         for (File file : filesList) {
-            if (!file.isFile() || !file.exists() || !file.getName().endsWith(".json")) return;
-            try {
-                JsonParser jp = new JsonParser();
-                InputStream inputStream = new FileInputStream(file);
-                JsonElement root = jp.parse(new InputStreamReader(inputStream));
+            if (file.isFile() && file.exists() && file.getName().endsWith(".json")) {
+                try {
+                    JsonParser jp = new JsonParser();
+                    InputStream inputStream = new FileInputStream(file);
+                    JsonElement root = jp.parse(new InputStreamReader(inputStream));
 
-                JsonArray messages = root.getAsJsonObject().getAsJsonArray(JsonNames.MESSAGES.getName());
+                    JsonArray messages = root.getAsJsonObject().getAsJsonArray(JsonNames.MESSAGES.getName());
 
-                for (JsonElement q : messages) {
-                    index++;
+                    for (JsonElement q : messages) {
+                        index++;
 
-                    JsonObject obj = q.getAsJsonObject();
-                    ArrayList<String> jsonTriggers = new ArrayList<>();
-                    obj.getAsJsonArray(JsonNames.TRIGGERS.getName()).forEach(trig -> jsonTriggers.add(trig.getAsString().toLowerCase()));
+                        JsonObject obj = q.getAsJsonObject();
+                        ArrayList<String> jsonTriggers = new ArrayList<>();
+                        obj.getAsJsonArray(JsonNames.TRIGGERS.getName()).forEach(trig -> jsonTriggers.add(trig.getAsString().toLowerCase()));
 
-                    ArrayList<String> jsonResponses = new ArrayList<>();
-                    if (obj.getAsJsonArray(JsonNames.RESPONSES.getName()) != null) obj.getAsJsonArray(JsonNames.RESPONSES.getName()).forEach(resp -> jsonResponses.add(resp.getAsString()));
+                        ArrayList<String> jsonResponses = new ArrayList<>();
+                        if (obj.getAsJsonArray(JsonNames.RESPONSES.getName()) != null)
+                            obj.getAsJsonArray(JsonNames.RESPONSES.getName()).forEach(resp -> jsonResponses.add(resp.getAsString()));
 
-                    ArrayList<String> jsonReactions = new ArrayList<>();
-                    if (obj.getAsJsonArray(JsonNames.REACTIONS.getName()) != null) obj.getAsJsonArray(JsonNames.REACTIONS.getName()).forEach(reac -> jsonReactions.add(reac.getAsString()));
+                        ArrayList<String> jsonReactions = new ArrayList<>();
+                        if (obj.getAsJsonArray(JsonNames.REACTIONS.getName()) != null)
+                            obj.getAsJsonArray(JsonNames.REACTIONS.getName()).forEach(reac -> jsonReactions.add(reac.getAsString()));
 
-                    types.put(index, obj.get(JsonNames.TYPE.getName()) != null ? obj.get(JsonNames.TYPE.getName()).getAsString().toLowerCase() : JsonNames.OP_AND.getName());
+                        types.put(index, obj.get(JsonNames.TYPE.getName()) != null ? obj.get(JsonNames.TYPE.getName()).getAsString().toLowerCase() : JsonNames.OP_AND.getName());
 
-                    triggers.put(index, jsonTriggers);
-                    if (!jsonResponses.isEmpty()) responses.put(index, jsonResponses);
-                    if (!jsonReactions.isEmpty()) reactions.put(index, jsonReactions);
+                        triggers.put(index, jsonTriggers);
+                        if (!jsonResponses.isEmpty()) responses.put(index, jsonResponses);
+                        if (!jsonReactions.isEmpty()) reactions.put(index, jsonReactions);
+
+                    }
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                } catch (JsonParseException e) {
+                    UtilLogger.WARN.log(String.format("INVALID JSON - %s\n%s", file.getName(), e.getMessage()));
                 }
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
-            } catch (JsonParseException e) {
-                UtilLogger.WARN.log(String.format("INVALID JSON - %s\n%s", file.getName(), e.getMessage()));
             }
         }
 
@@ -155,7 +159,6 @@ public class HandlerMessages {
         while (matcher.find()){
             if (matcher.group().length() != 0){
                 try {
-                    UtilLogger.DEBUG.log(matcher.group(2));
                     response = response.replaceAll(regex.pattern(), String.valueOf(rand.nextInt(Integer.parseInt(matcher.group(2))) + 1));
                 } catch (NumberFormatException e){
                     response = "[ERROR: NFE]";

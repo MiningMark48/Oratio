@@ -27,5 +27,6 @@ gradlew
 
 # Specific Files
 config.json
+main_config.json
 server_configs.json
 test.json
